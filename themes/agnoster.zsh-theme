@@ -204,7 +204,9 @@ prompt_hg() {
 
 # Dir: current working directory
 prompt_dir() {
-  prompt_segment blue $CURRENT_FG '%~'
+  setopt prompt_subst
+  source ~/.oh-my-zsh/plugins/shrink-path/shrink-path.plugin.zsh
+  prompt_segment blue $CURRENT_FG "$(shrink_path -f)"
 }
 
 # Virtualenv: current working virtualenv
